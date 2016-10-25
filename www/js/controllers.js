@@ -51,4 +51,19 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
-});
+})
+
+
+.controller('ServiziCtrl', function($scope, $stateParams) {
+})
+
+
+.controller('trovaciCtrl', function($scope, $stateParams) {
+})
+
+
+.controller('offertaCtrl', function($scope, $stateParams) {
+})
+
+
+;

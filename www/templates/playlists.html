@@ -1,8 +1,14 @@
 <ion-view view-title="Farmacia">
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
-        <img src="img/offerta.jpeg" ng-if="playlist.id==1" a class="item item-thumbnail-center" href="#">{{playlist.title}}
+   	   <ion-item href="#/app/offerta">
+        <img src="img/offerta.jpeg" class="item item-thumbnail-justifies" href="#">
+      </ion-item>
+       <ion-item href="#/app/servizi">
+        I Nostri Servizi
+      </ion-item>
+       <ion-item href="#/app/trovaci">
+        Vieni a Trovarci
       </ion-item>
     </ion-list>
   </ion-content>

@@ -49,6 +49,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
+  //non toccare
     .state('app.playlists', {
       url: '/playlists',
       views: {
@@ -58,7 +59,35 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
+    .state('app.servizi', {
+      url: '/servizi',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/servizi.html',
+          controller: 'ServiziCtrl'
+        }
+      }
+    })
 
+.state('app.trovaci', {
+      url: '/trovaci',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/trovaci.html',
+          controller: 'ServiziCtrl'
+        }
+      }
+    })
+
+.state('app.offerta', {
+      url: '/offerta',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/offerta.html',
+          controller: 'offertaCtrl'
+        }
+      }
+    })
   .state('app.single', {
     url: '/playlists/:playlistId',
     views: {
