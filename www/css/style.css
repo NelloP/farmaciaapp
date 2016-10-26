@@ -1,1 +1,11 @@
-/* Empty. Add your own CSS if you like */
+.vertical-align {
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+};
+
+.class-to-center{
+	@include vertical-align;
+}
