@@ -1,0 +1,25 @@
+<ion-view view-title="Browse">
+  <ion-content>
+    <h1>Prenota</h1>
+    <div class="list">
+		  <label class="item item-input">
+		    <span class="input-label">Tuo nome*</span>
+		    <input type="text" ng-model="dati.nome">
+		  </label>
+		  <label class="item item-input">
+		    <span class="input-label">Nome Farmaco*</span>
+		    <input type="text" ng-model="dati.farma">
+		  </label>
+		  <label class="item item-input">
+		    <span class="input-label">Quantità(1-4)*</span>
+		    <input type="number" ng-model="dati.quant" value = "1">
+		  </label>
+		  <label class="item item-input" >
+		    <textarea placeholder="Commenti" ng-model="dati.comme"></textarea>
+		  </label>
+		  <center><button class='button button-positive' ng-Click="prenota()">
+		  	Invia 
+		  </button></center><br>
+		  * Campo obbligatorio
+  </ion-content>
+</ion-view>
