@@ -18,9 +18,10 @@
         </label>
       </div>
     </form>
+    <button class="button button-block button-positive" type="submit" ng-if = "loggato" ng-Click="pageRe()">Refresh</button>
     <ion-list ng-if="loggato">
-     <ion-item ng-repeat="piece in news">
-        <a href="#/app/login/{{piece.id}}">{{piece.sender}} {{piece.date}}</h2></a>
+     <ion-item ng-repeat="farmaco in farmaci">
+        <a href="#/app/login/{{farmaco.id}}">{{farmaco.nome}} {{farmaco.datora}}</h2></a>
       </ion-item>
     </ion-list>
   </ion-content>

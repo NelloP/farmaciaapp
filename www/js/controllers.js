@@ -32,12 +32,17 @@ angular.module('starter.controllers', [])
         localStorage.user = $scope.dati.name;
         localStorage.pass = $scope.dati.pass;
         $scope.loggato = true;
+        $scope.farmaci = data.dats;
       }
       else{
         alert("LOGIN FALLITO");
       }
     })
     
+  };
+  $scope.pageRe = function(){
+   $scope.logClick();
+  
   };
 })
 

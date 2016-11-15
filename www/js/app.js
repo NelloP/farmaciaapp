@@ -49,6 +49,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
+  .state('app.ldetail', {
+    url: '/login/:newsID',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/search.html'
+      }
+    }
+  })
   .state('app.browse', {
       url: '/browse',
       views: {
