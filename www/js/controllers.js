@@ -33,6 +33,7 @@ angular.module('starter.controllers', [])
         localStorage.pass = $scope.dati.pass;
         $scope.loggato = true;
         $scope.farmaci = data.dats;
+        sessionStorage.farmaci = $scope.farmaci;
       }
       else{
         alert("LOGIN FALLITO");
@@ -42,11 +43,28 @@ angular.module('starter.controllers', [])
   };
   $scope.pageRe = function(){
    $scope.logClick();
-  
   };
 })
 
-
+.controller('login2Ctrl', function($scope, $stateParams, $http) {
+  $scope.index = $stateParams.index;
+    var query = "http://pierostesting.altervista.org/farmalog.php?name="+localStorage.user+"&pass="+localStorage.pass+"&id="+$stateParams.index;
+    console.log(query);
+    $http.get(query)
+    .success(function(data){ 
+      if(data.response == 'yes'){
+        $scope.farmaco = data.dats;
+       /* var urldecode = function(str) {
+          return decodeURIComponent((str+'').replace(/\+/g, '%20'));
+        };*/
+        $scope.farmaco.commento = unescape($scope.farmaco.commento);
+        console.log($scope.farmaco);
+      }
+      else{
+        alert("LOGIN FALLITO");
+      }
+    })
+})
 .controller('ServiziCtrl', function($scope, $stateParams) {
 })
 
@@ -90,6 +108,4 @@ angular.module('starter.controllers', [])
       alert("Il tuo nome e il nome del farmaco sono obbligatori ");
     }
   }
-})
-
-;
+});

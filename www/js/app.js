@@ -49,11 +49,12 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
-  .state('app.ldetail', {
-    url: '/login/:newsID',
+  .state('app.login2', {
+    url: '/login/:index',
     views: {
       'menuContent': {
-        templateUrl: 'templates/search.html'
+        templateUrl: 'templates/login2.html',
+        controller: 'login2Ctrl'
       }
     }
   })
@@ -61,7 +62,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/browse',
       views: {
         'menuContent': {
-          templateUrl: 'templates/browse.html',
+          templateUrl: 'templates/prenota.html',
           controller: 'BrowseCtrl'
         }
       }
@@ -106,7 +107,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
   .state('app.single', {
-    url: '/playlists/:playlistId',
+    url: '/playlists/:index',
     views: {
       'menuContent': {
         templateUrl: 'templates/playlist.html',
