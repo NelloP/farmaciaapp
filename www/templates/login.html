@@ -18,5 +18,10 @@
         </label>
       </div>
     </form>
+    <ion-list ng-if="loggato">
+     <ion-item ng-repeat="piece in news">
+        <a href="#/app/login/{{piece.id}}">{{piece.sender}} {{piece.date}}</h2></a>
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-modal-view>
