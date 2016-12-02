@@ -22,7 +22,7 @@ angular.module('starter.controllers', [])
     $scope.dati.pass = localStorage.pass;
   }
   $scope.logClick = function(){
-    var query = "http://pierostesting.altervista.org/farmalog.php?name="+$scope.dati.name+"&pass="+$scope.dati.pass;
+    var query = "/api/farmalog/?name="+$scope.dati.name+"&pass="+MD5($scope.dati.pass);
     console.log(query);
     $http.get(query)
     .success(function(data){ 
@@ -47,8 +47,17 @@ angular.module('starter.controllers', [])
 })
 
 .controller('login2Ctrl', function($scope, $stateParams, $http) {
+
+  $scope.consegnato = function(){
+    var query = "/api/farmalog/?name="+localStorage.user+"&pass="+MD5(localStorage.pass)+"&id="+$stateParams.index+"&canc=1";
+    console.log(query);
+    $http.get(query)
+    .success(function(data){
+      alert("Confermato, puoi tornare indietro");
+    })
+  }
   $scope.index = $stateParams.index;
-    var query = "http://pierostesting.altervista.org/farmalog.php?name="+localStorage.user+"&pass="+localStorage.pass+"&id="+$stateParams.index;
+    var query = "/api/farmalog/?name="+localStorage.user+"&pass="+MD5(localStorage.pass)+"&id="+$stateParams.index;
     console.log(query);
     $http.get(query)
     .success(function(data){ 
@@ -58,6 +67,8 @@ angular.module('starter.controllers', [])
           return decodeURIComponent((str+'').replace(/\+/g, '%20'));
         };*/
         $scope.farmaco.commento = unescape($scope.farmaco.commento);
+        $scope.farmaco.nome = unescape($scope.farmaco.nome);
+        $scope.farmaco.farmaco = unescape($scope.farmaco.farmaco);
         console.log($scope.farmaco);
       }
       else{
@@ -75,14 +86,14 @@ angular.module('starter.controllers', [])
 
 .controller('offertaCtrl', function($scope, $stateParams) {
 })
-
+ 
 .controller('BrowseCtrl', function($scope, $stateParams,$http) {
   $scope.dati = {"nome":"","farma":"","qaunt":1,"comme":""};
   $scope.dati.quant=1;
   $scope.prenota = function(){
     if($scope.dati.nome !="" && $scope.dati.farma != "" ){
       if( $scope.dati.quant >0 && $scope.dati.quant <5){
-        var query = "http://pierostesting.altervista.org/farmacia.php?name="+$scope.dati.nome+"&farma="+$scope.dati.farma+"&quant="+$scope.dati.quant+"&comme="+escape($scope.dati.comme);
+        var query = "/api/farmacia/?name="+escape($scope.dati.nome)+"&farma="+escape($scope.dati.farma)+"&quant="+$scope.dati.quant+"&comme="+escape($scope.dati.comme);
         $http.get(query)
         .success(function(data){ 
           if(data.response == 'success'){
@@ -91,11 +102,12 @@ angular.module('starter.controllers', [])
             $scope.dati.nome="";
             $scope.dati.quant=1;
             
-            alert("La tua prenotazione e' stata inviata, troverai il farmaco sul bancone");
+            alert("La tua prenotazione e' stata inviata, ID ordine: "+ data.id);
       
           }
           else{
-            alert("Si e' verificato un errore, riprovi piu' tardi");
+           // alert("Si e' verificato un errore, riprovi piu' tardi");
+            alert(data.text);
           }
         }).error(function(e){
           console.log(e);
@@ -105,7 +117,10 @@ angular.module('starter.controllers', [])
         alert("La quantità può andare da 1 a 4 ");
       }
     }else{
-      alert("Il tuo nome e il nome del farmaco sono obbligatori ");
+      alert("Il suo nome e il nome del farmaco sono obbligatori ");
     }
   }
 });
+
+
+

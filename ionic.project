@@ -1,4 +1,13 @@
 {
   "name": "farmaciaapp",
-  "app_id": "1c855009"
+  "app_id": "1c855009",
+  "proxies": [{
+     "path": "/api/farmacia",
+     "proxyUrl": "http://pierostesting.altervista.org/farmacia.php"
+   },
+   {
+   	"path": "/api/farmalog",
+     "proxyUrl": "http://pierostesting.altervista.org/farmalog.php"
+  
+   }]
 }

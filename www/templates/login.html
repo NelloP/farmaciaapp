@@ -18,7 +18,7 @@
     <button class="button button-block button-positive" type="submit" ng-if = "loggato" ng-Click="pageRe()">Refresh</button>
     <ion-list ng-if="loggato">
      <ion-item ng-repeat="farmaco in farmaci">
-        <a href="#/app/login/{{farmaco.id}}">{{farmaco.nome}} {{farmaco.datora}}</h2></a>
+        <a href="#/app/login/{{farmaco.id}}"> [{{farmaco.id}}]{{farmaco.nome}} {{farmaco.datora}}</h2></a>
       </ion-item>
     </ion-list>
   </ion-content>
